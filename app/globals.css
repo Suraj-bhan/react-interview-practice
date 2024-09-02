@@ -33,11 +33,51 @@ body {
 }
 
 @layer components {
+  .home-link {
+    @apply p-4 border hover:bg-slate-100;
+  }
+
+  .page {
+    @apply bg-white min-h-screen text-black w-full flex flex-col items-center;
+  }
+
   .container {
     @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center justify-center w-full gap-2 space-y-2;
   }
-  
+
   .pagination-button {
     @apply border px-6 py-5 inline-block items-center text-center cursor-pointer;
+  }
+
+
+  /* TableComponent.module.css */
+
+  .tableContainer {
+    @apply w-full px-24 my-12;
+  }
+
+  .table {
+    @apply w-full border-collapse;
+  }
+
+  th,
+  td {
+    @apply p-3.5 text-left border-b border-gray-300;
+  }
+
+  th {
+    @apply bg-blue-600 text-white;
+  }
+
+  tr:nth-child(even) {
+    @apply bg-gray-200;
+  }
+
+  tr:hover {
+    @apply bg-gray-300;
+  }
+
+  tr:last-child td {
+    @apply border-b-0;
   }
 }

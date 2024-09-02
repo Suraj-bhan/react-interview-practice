@@ -39,7 +39,7 @@ const Pagination = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen text-black w-full flex flex-col items-center">
+    <div className="page">
       <div className="container">
         {products &&
           products.length > 0 &&
