@@ -1,8 +1,10 @@
 interface TableProps {
+  loading: boolean;
   data: any;
 }
 
-const Table = ({ data }: TableProps) => {
+const Table = ({ loading, data }: TableProps) => {
+  if (loading) return <div>Loading...</div>;
   return (
     <table className="table">
       <thead>

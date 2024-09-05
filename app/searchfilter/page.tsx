@@ -5,16 +5,24 @@ import SearchInput from "../_components/SearchInput";
 
 const SearchFilter = () => {
   const [tableData, setTableData] = useState<any>([]);
+  const [loading, setLoading] = useState(true);
   const [filterData, setFiterData] = useState([]);
 
   const fetchTableData = async () => {
-    const res = await fetch("https://dummyjson.com/users?limit=100");
-    const json = await res.json();
-    setTableData(json.users);
-    setFiterData(json.users);
+    try {
+      const res = await fetch("https://dummyjson.com/users?limit=100");
+      const json = await res.json();
+      setTableData(json.users);
+      setFiterData(json.users);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
+    setLoading(true);
     fetchTableData();
   }, []);
 
@@ -35,7 +43,7 @@ const SearchFilter = () => {
     <div className="page">
       <div className="tableContainer">
         <SearchInput searchHandler={handleSearch} />
-        <Table data={filterData} />
+        <Table loading={loading} data={filterData} />
       </div>
     </div>
   );

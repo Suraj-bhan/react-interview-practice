@@ -32,6 +32,7 @@ const Pagination = () => {
   };
 
   const handlePerPageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setCurrentPage(1);
     setItemsPerPage(parseInt(e.target.value));
     if (products && products.length > 0) {
       setTotalPage(Math.ceil(products.length / parseInt(e.target.value)));

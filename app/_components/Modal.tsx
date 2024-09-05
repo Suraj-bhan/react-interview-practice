@@ -6,12 +6,20 @@ interface ModalProps {
 }
 
 const Modal = ({ open, onClose }: ModalProps) => {
-  if (!open) return null;
+  // if (!open) return null;
 
   return (
     <Portal>
-      <div className="fixed top-0 left-0 right-0 bottom-0 w-screen h-screen  bg-gray-400 z-1000">
-        <div className="flex flex-col text-black bg-white fixed top-1/2 left-1/2 -translate-x-1/2  -translate-y-1/2 p-6 pt-4 rounded-lg shadow-lg border z-1000">
+      <div
+        className={`fixed top-0 left-0 right-0 bottom-0 w-screen h-screen transition-colors z-1000 ${
+          open ? "visible bg-slate-400" : "invisible"
+        }`}
+      >
+        <div
+          className={`flex flex-col text-black bg-white fixed top-1/2 left-1/2 -translate-x-1/2  -translate-y-1/2 p-6 pt-4 rounded-lg shadow-lg border transition-all z-1001 ${
+            open ? "opacity-100 scale-100" : "opacity-0 scale-75"
+          }`}
+        >
           <div className="text-2xl font-bold relative mb-1">
             <div>This is Portal</div>
             <button
