@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -7,6 +6,7 @@ export default function Home() {
       <div className="grid grid-cols-4 gap-x-2">
         <Link href="/pagination" className="home-link">📃 React Pagination Example</Link>
         <Link href="/searchfilter" className="home-link">🔍 React Search Filter Example</Link>
+        <Link href="/portalmodal" className="home-link">🪟 Modal with Portal</Link>
       </div>
     </main>
   );
