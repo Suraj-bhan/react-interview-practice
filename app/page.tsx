@@ -1,12 +1,25 @@
+import { HomeLink, homeLinks } from "@/constant/data";
+import { getStatusIcon } from "@/constant/helper";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-white text-black">
-      <div className="grid grid-cols-4 gap-x-2">
-        <Link href="/pagination" className="home-link">📃 React Pagination Example</Link>
-        <Link href="/searchfilter" className="home-link">🔍 React Search Filter Example</Link>
-        <Link href="/portalmodal" className="home-link">🪟 Modal with Portal</Link>
+    <main className="page p-24">
+      <div className="grid gap-2 grid-cols-2 w-full max-w-5xl">
+        {homeLinks.map((link: HomeLink) => (
+          <Link key={link.id} href={link.href} className="home-link">
+            <div className="">
+              <span className="text-lg">{link.icon} </span>
+              <span>{link.title}</span>
+            </div>
+            <div>{getStatusIcon(link.status)}</div>
+          </Link>
+        ))}
+
+        {/* OTP Input */}
+        {/* Lazy Loading */}
+        {/* Multiple step user login */}
+        {/*AutoComplete */}
       </div>
     </main>
   );

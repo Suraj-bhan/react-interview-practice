@@ -25,4 +25,13 @@ Key Concepts:
 7. Api Fetching
 8. Array Filtering and Mapping
 9. Portal
-10. Higher Order Functions
+10. Higher Order 
+11. Routing
+12. Navigation
+13. useCallback
+
+
+
+
+
+

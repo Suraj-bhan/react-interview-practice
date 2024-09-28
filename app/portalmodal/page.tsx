@@ -15,7 +15,7 @@ const PortalModal = () => {
 
   return (
     <div className="page justify-center">
-      <button type="button" className="home-link" onClick={handleOpenModal}>
+      <button type="button" className="primary-button" onClick={handleOpenModal}>
         ⬆️ Open Modal
       </button>
       <Modal open={openModal} onClose={handleCloseModal} />

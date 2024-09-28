@@ -26,7 +26,9 @@ const Table = ({ loading, data }: TableProps) => {
             </tr>
           ))
         ) : (
-          <div>No Data</div>
+          <tr>
+            <td>No Data</td>
+          </tr>
         )}
       </tbody>
     </table>

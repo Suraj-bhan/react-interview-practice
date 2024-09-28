@@ -11,7 +11,7 @@ const SearchInput = ({ searchHandler }: SearchInputProps) => {
 
   useEffect(() => {
     searchHandler(debouncedSearchTerm);
-  }, [debouncedSearchTerm, searchHandler]);
+  }, [debouncedSearchTerm]);
 
   return (
     <div className="relative w-full max-w-lg mb-6">
