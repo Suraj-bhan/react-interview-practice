@@ -1,13 +1,13 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { MouseEvent, useEffect, useRef, useState } from "react";
 
 const AutoCompletChip = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [showList, setShowList] = useState(false);
   const [query, setQuery] = useState("");
-  const [selectedList, setSelectedList] = useState([]);
-  const inputRef = useRef(null);
+  const [selectedList, setSelectedList] = useState<any[]>([]);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const filteredData = data.filter((item) => {
     return (
@@ -37,12 +37,15 @@ const AutoCompletChip = () => {
     setShowList(flag);
   };
 
-  const handleSelectList = (e) => {
-    const id = e.target.id;
-    setSelectedList([...selectedList, filteredData[id].firstName]);
-    setQuery("");
-    setShowList(false);
-    inputRef?.current?.focus();
+  const handleSelectList = (e: MouseEvent<HTMLUListElement>) => {
+    const target = e.target as HTMLElement;
+    if (target && target.tagName === "LI") {
+      const id = target.id;
+      setSelectedList([...selectedList, filteredData[+id].firstName]);
+      setQuery("");
+      setShowList(false);
+      inputRef?.current?.focus();
+    }
   };
 
   const handleListRemove = (item: string) => {
@@ -86,7 +89,7 @@ const AutoCompletChip = () => {
             <ul onClick={handleSelectList}>
               {[...filteredData]?.map((item, index) => (
                 <li
-                  id={index}
+                  id={index.toString()}
                   key={item.firstName + index}
                   className="py-2 border-t"
                 >

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const Pagination = () => {
   const [products, setProducts] = useState<[] | any>([]);
@@ -8,16 +8,16 @@ const Pagination = () => {
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [totalPage, setTotalPage] = useState(0);
 
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     const res = await fetch("https://dummyjson.com/products?limit=100");
     const json = await res.json();
     setProducts(json.products);
     setTotalPage(Math.ceil(json.products.length / itemsPerPage));
-  };
+  }, [itemsPerPage]);
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [fetchProducts]);
 
   const handlePrevious = () => {
     if (currentPage !== 1) {

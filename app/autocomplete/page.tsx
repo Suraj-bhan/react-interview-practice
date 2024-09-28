@@ -22,15 +22,14 @@ const AutoCompleteHome = () => {
     }
   }, []);
 
-  const debounceSearchData = useCallback(debounce(fetchSearchData, 300), [
-    fetchSearchData,
-  ]);
+  const debounceSearchData = debounce(fetchSearchData, 300);
 
   const empltyFunctions = () => {};
 
   return (
     <div className="page p-24">
       <AutoComplete
+        placeHolder="Search Food"
         options={data}
         onSelect={empltyFunctions}
         onBlur={empltyFunctions}
