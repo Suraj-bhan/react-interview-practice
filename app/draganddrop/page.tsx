@@ -1,6 +1,6 @@
 "use client";
 
-import { DragEvent, Ref, useRef, useState } from "react";
+import { DragEvent, useRef, useState } from "react";
 import { dragAndDropData } from "./data";
 
 const DragAndDropPage = () => {
@@ -47,7 +47,15 @@ const DragAndDropPage = () => {
 
   return (
     <div className="page">
-      <div className="grid grid-cols-4 space-x-6 mt-24">
+      <div
+        className={`grid gap-10 mt-24`}
+        style={{
+          gridTemplateColumns: `repeat(${Math.min(
+            Object.keys(task).length,
+            4
+          )}, 1fr)`,
+        }}
+      >
         {Object.keys(task).map((container) => (
           <div
             key={container}

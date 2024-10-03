@@ -32,6 +32,14 @@ interface DragAndDropData {
         "Drag and drop design"
       ],
     },
+    readyToDeploy: {
+      title: "Ready to Deploy",
+      task: [
+        "Code Setup", 
+        "Mongo database", 
+        "Drag and drop design"
+      ],
+    },
     complete: {
       title: "Complete",
       task: [
