@@ -103,4 +103,28 @@ export const homeLinks: HomeLink[] = [
     status: "complete",
     keyConcepts: ["Autocomplete", "React"],
   },
+  {
+    id: 7,
+    icon: "❔",
+    title: "Multi Step Form",
+    href: "/multistepform",
+    status: "in-progress",
+    keyConcepts: ["Form", "Stepper", "React"],
+  },
+  {
+    id: 8,
+    icon: "☑️",
+    title: "To Do List",
+    href: "/todolist",
+    status: "complete",
+    keyConcepts: ["To Do", "Input", "List"],
+  },
+  {
+    id: 9,
+    icon: "🏹",
+    title: "Drag and Drop List",
+    href: "/draganddrop",
+    status: "in-progress",
+    keyConcepts: ["Drag", "List", "React"],
+  },
 ];
