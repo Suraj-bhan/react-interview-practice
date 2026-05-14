@@ -1,0 +1,47 @@
+.container {
+  position: relative;
+  width: 400px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.imageContainer {
+  overflow: hidden;
+  width: 100%;
+  height: 400px;
+}
+
+.slider {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.image {
+  min-width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+/* Buttons */
+.prevBtn,
+.nextBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  padding: 6px 12px;
+  border-radius: 8px; /* FIXED typo */
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prevBtn {
+  left: 10px;
+}
+
+.nextBtn {
+  right: 10px;
+}

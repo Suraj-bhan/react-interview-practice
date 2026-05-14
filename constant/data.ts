@@ -143,4 +143,12 @@ export const homeLinks: HomeLink[] = [
     status: "in-progress",
     keyConcepts: ["Drag", "List", "React"],
   },
+  {
+    id: 11,
+    icon: "💬",
+    title: "Chat Bot",
+    href: "/chatbot",
+    status: "in-progress",
+    keyConcepts: ["Infinite Scroll", "List", "Message"],
+  },
 ];

@@ -1,5 +1,5 @@
 "use client";
-import { MouseEvent, useEffect, useRef, useState } from "react";
+import { KeyboardEvent, MouseEvent, useEffect, useRef, useState } from "react";
 
 const AutoCompletChip = () => {
   const [data, setData] = useState<any[]>([]);
@@ -57,11 +57,27 @@ const AutoCompletChip = () => {
   };
 
   console.log(filteredData);
+
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    const key = e.key;
+    switch (key) {
+      case "Backspace": {
+        if (selectedList.length > 0) {
+          setSelectedList((prev) => {
+            const newList = [...prev];
+            newList.pop();
+            return newList;
+          })
+        }
+      }
+    }
+  }
+
   return (
     <div className="page">
       <div
         className="p-12 rounded-md mt-24"
-        // onBlur={() => handleShowHideList(false)}
+      // onBlur={() => handleShowHideList(false)}
       >
         <div
           className="flex flex-wrap border rounded-sm items-center w-[640px] bg-white"
@@ -79,14 +95,15 @@ const AutoCompletChip = () => {
             ref={inputRef}
             className="border-none outline-none rounded-sm p-2 text-black flex-1"
             onFocus={() => handleShowHideList(true)}
-
-            //
+            onBlur={() => handleShowHideList(false)}
+            onKeyDown={handleKeyDown}
+          //
           />
         </div>
 
         {showList && (
           <div className="max-h-96 overflow-auto mt-2">
-            <ul onClick={handleSelectList}>
+            <ul onMouseDown={handleSelectList}>
               {[...filteredData]?.map((item, index) => (
                 <li
                   id={index.toString()}

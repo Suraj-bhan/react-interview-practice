@@ -13,10 +13,9 @@ const AutoCompleteHome = () => {
         `https://dummyjson.com/recipes/search?q=${query}`
       );
       const json = await res.json();
-      console.log(json);
       setData(json.recipes);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     } finally {
       setLoading(false);
     }
