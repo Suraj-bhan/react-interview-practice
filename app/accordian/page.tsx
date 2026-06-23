@@ -12,11 +12,13 @@ interface AccordionProps {
     multiple?: boolean; // allow multiple open
 }
 
+const defaultItems: Item[] = [
+    { id: 1, title: "Section 1", content: "I manage open panels using state and support both single and multiple expansion. I use semantic buttons with aria attributes for accessibility and handle keyboard interactions." },
+    { id: 2, title: "Section 2", content: "Content 2" },
+];
+
 const Accordion = ({
-    items = [
-        { id: 1, title: "Section 1", content: "I manage open panels using state and support both single and multiple expansion. I use semantic buttons with aria attributes for accessibility and handle keyboard interactions." },
-        { id: 2, title: "Section 2", content: "Content 2" },
-    ],
+    items,
     multiple = true
 }: AccordionProps) => {
     const [openIndexes, setOpenIndexes] = useState<number[]>([]);
@@ -79,4 +81,6 @@ const Accordion = ({
     );
 };
 
-export default Accordion;
+export default function AccordionPage() {
+    return <Accordion items={defaultItems} multiple />;
+}

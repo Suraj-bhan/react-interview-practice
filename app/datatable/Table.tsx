@@ -100,7 +100,7 @@ const Table = ({ data }: TableData) => {
             <div className='flex justify-start items-center gap-2 mx-8 border-t p-4 w-full'>
                 <div>
                     <select onChange={(e) => setRowPerPage(Number(e.target.value))}>
-                        {[10, 25, 50].map((item) => <option value={item}>{item}</option>)}
+                        {[10, 25, 50].map((item) => <option key={item} value={item}>{item}</option>)}
                     </select>
                 </div>
                 <div className='flex justify-start gap-2 mx-8 p-4 w-full'>

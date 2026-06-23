@@ -5,8 +5,14 @@ const ITEM_HEIGHT = 50;
 const WINDOW_HEIGHT = 500;
 const OVERSCAN = 5;
 
-const SearchFilter = () => {
-  const [tableData, setTableData] = useState([]);
+type User = {
+  id: number;
+  firstName: string;
+  lastName: string;
+};
+
+const VirtualList = () => {
+  const [tableData, setTableData] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [scrollTop, setScrollTop] = useState(0);
 
@@ -77,4 +83,4 @@ const SearchFilter = () => {
   );
 };
 
-export default SearchFilter;
+export default VirtualList;

@@ -20,7 +20,7 @@ const Grid = ({ size = 4 }: GridProps) => {
     const paired = shuffle([...colors, ...colors]);
     return paired.map((color, i) => {
       return {
-        id: i,
+        id: `${flag}-${i}`,
         color,
       };
     });

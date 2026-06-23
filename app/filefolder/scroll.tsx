@@ -57,25 +57,6 @@ const InfiniteScroll = () => {
     fetchData(page);
   }, [page]);
 
-  // 🔹 Fallback: scroll event
-  useEffect(() => {
-    if ("IntersectionObserver" in window) return;
-
-    const handleScroll = () => {
-      if (
-        window.innerHeight + window.scrollY >=
-        document.body.offsetHeight - 200 &&
-        !loading &&
-        hasMore
-      ) {
-        setPage((prev) => prev + 1);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [loading, hasMore]);
-
   return (
     <div style={{ padding: "20px" }}>
       <h2>Infinite Scroll</h2>

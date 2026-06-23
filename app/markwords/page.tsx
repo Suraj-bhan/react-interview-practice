@@ -19,7 +19,7 @@ type AnnotationsMap = Record<number, Annotation>;
 type SelectedState =
     | { type: "word"; ids: number[] }
     | { type: "annotation"; ids: number[]; annotationId: number }
-    | { type: null; ids: [] };
+    | { type: null; ids: number[] };
 
 // 🔹 Data
 const text =

@@ -14,12 +14,7 @@ interface DropdownProps {
 }
 
 const Dropdown = ({
-    options =
-    [
-        { id: 1, label: "Apple" },
-        { id: 2, label: "Banana" },
-        { id: 3, label: "Mango" },
-    ],
+    options,
     multi = false,
     placeholder = "Select...",
     onChange,
@@ -139,4 +134,15 @@ const Dropdown = ({
     );
 };
 
-export default Dropdown;
+export default function DropdownPage() {
+    return (
+        <Dropdown
+            options={[
+                { id: 1, label: "Apple" },
+                { id: 2, label: "Banana" },
+                { id: 3, label: "Mango" },
+            ]}
+            onChange={() => {}}
+        />
+    );
+}

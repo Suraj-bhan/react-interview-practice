@@ -21,6 +21,8 @@ const AutoComplete = ({
   const [error, setError] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
   const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
+  const onChangeRef = useRef(onChange);
+  onChangeRef.current = onChange;
 
   const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -30,8 +32,8 @@ const AutoComplete = ({
   };
 
   useEffect(() => {
-    onChange("");
-  }, [])
+    onChangeRef.current("");
+  }, []);
 
   const handleSelect = (e: MouseEvent<HTMLUListElement>) => {
     e.stopPropagation();

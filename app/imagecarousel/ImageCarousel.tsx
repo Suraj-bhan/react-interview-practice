@@ -2,7 +2,7 @@
 "use client"
 
 import Image from 'next/image';
-import React, { TouchEvent, useCallback, useEffect, useRef, useState } from 'react'
+import React, { TouchEvent, PointerEvent, useCallback, useEffect, useRef, useState } from 'react'
 import classes from "./carousel.module.css"
 
 const AUTO_PLAY_TIME = 3000;
@@ -69,12 +69,12 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
     }
 
 
-    const onPointerDown = (e) => {
+    const onPointerDown = (e: PointerEvent) => {
         if (e.pointerType !== "touch") return; // only touch
         touchStartX.current = e.clientX;
     };
 
-    const onPointerMove = (e) => {
+    const onPointerMove = (e: PointerEvent) => {
         if (e.pointerType !== "touch") return;
         touchEndX.current = e.clientX;
     };

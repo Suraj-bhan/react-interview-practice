@@ -7,17 +7,15 @@ const DataTablePage = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [pageData, setPageData] = useState([]);
 
-    const fetchProductData = async () => {
-        const res = await fetch(`https://dummyjson.com/products?limit=${rowPerPage}&skip=${0}`);
-        const json = await res.json();
-        console.log(json);
-        setPageData(json?.products)
-    }
-
-
     useEffect(() => {
+        const fetchProductData = async () => {
+            const res = await fetch(`https://dummyjson.com/products?limit=${rowPerPage}&skip=${0}`);
+            const json = await res.json();
+            setPageData(json?.products);
+        };
+
         fetchProductData();
-    }, [])
+    }, [rowPerPage]);
     return (
         <div className='text-black bg-white h-screen max-h-screen overflow-auto'>
             <Table data={pageData} />
